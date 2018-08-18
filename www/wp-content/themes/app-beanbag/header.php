@@ -16,43 +16,39 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'app-beanbag' ); ?></a>
+	<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'app-beanbag' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$app_beanbag_description = get_bloginfo( 'description', 'display' );
-			if ( $app_beanbag_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $app_beanbag_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+	<header id="header">
+		<div class="container">			
+			<nav class="navbar navbar-expand-md">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand"><img src="https://via.placeholder.com/250x75" class="img-fluid" alt="App Beanbag"/></a>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'app-beanbag' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+				<ul class="navbar-nav ml-auto d-none d-sm-flex">
+					<li class="nav-item active">
+						<a href="#" class="nav-link">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="navbar-item">
+						<a href="#" class="nav-link">Events</a>
+					</li>
+					<li class="navbar-item">
+						<a href="#" class="nav-link">Artists</a>
+					</li>
+					<li class="navbar-item">
+						<a href="#" class="nav-link">Venues</a>
+					</li>
+					<li class="navbar-item">
+						<a href="#" class="nav-link">About</a>
+					</li>
+				</ul>
+				
+				<div aria-label="Menu Toggle" class="sidenav-open align-middle ml-auto cursor-pointer d-block d-sm-none">
+					<i class="fa fa-bars fa-lg"></i>
+				</div>
+			</nav>
+		</div>
+	</header><!-- #header -->

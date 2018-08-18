@@ -1,0 +1,9 @@
+.navbar {
+	padding: .5rem 0;
+	a {
+		color: $primary;
+		&:hover {
+			color: $primary-hover;
+		}
+	}
+}
