@@ -23,8 +23,8 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'app-beanbag' ); ?></a>
+<div id="page">
+	<a class="skip-link screen-reader-text sr-only" href="#main"><?php esc_html_e( 'Skip to content', 'app-beanbag' ); ?></a>
 
 	<header id="header">
 		<div class="container">			
@@ -32,7 +32,6 @@
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
 					<img src="https://via.placeholder.com/250x75" class="img-fluid" alt="App Beanbag"/>
 				</a>
-
 				<ul class="navbar-nav ml-auto d-none d-md-flex">
 					<li class="navbar-item">
 						<a href="#" class="nav-link">Events</a>
@@ -46,8 +45,7 @@
 					<li class="navbar-item">
 						<a href="#" class="nav-link">About</a>
 					</li>
-				</ul>
-				
+				</ul>				
 				<div aria-label="Menu Toggle" class="menu-toggle align-middle ml-auto cursor-pointer d-block d-md-none">
 					<i class="fa fa-bars"></i>
 				</div>
