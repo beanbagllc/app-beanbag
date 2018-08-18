@@ -1,7 +1,13 @@
-@import "../node_modules/font-awesome/scss/font-awesome.scss";
-@import "../node_modules/bootstrap/scss/functions"; //if variables file uses functions, we need to declare the functions first
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/font-awesome/scss/font-awesome";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/animate.css/animate";
 
-//@import "globals/variables";
-//@import "globals/theme";
+@import "globals/variables";
+@import "globals/typography";
+
+@import "theme/header/header";
+@import "theme/header/navbar";
+@import "theme/main/primary";
+@import "theme/main/secondary";
+@import "theme/footer/footer";

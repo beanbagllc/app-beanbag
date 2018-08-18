@@ -120,7 +120,9 @@ add_action( 'widgets_init', 'app_beanbag_widgets_init' );
  * Enqueue scripts and styles.
  */
 function app_beanbag_scripts() {
-	wp_enqueue_style( 'app-beanbag-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'app-beanbag-style', get_template_directory_uri() . '/_/css/app.min.css' );
+	
+	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/_/js/app.min.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
