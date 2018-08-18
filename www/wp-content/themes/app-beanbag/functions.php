@@ -114,12 +114,23 @@ add_action( 'widgets_init', 'app_beanbag_widgets_init' );
 
 
 /**
+ * Remove recent comments inline styles
+ */
+function remove_recent_comments_style() {  
+        global $wp_widget_factory;  
+        remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );  
+    }  
+add_action( 'widgets_init', 'remove_recent_comments_style' );
+
+
+
+/**
  * Enqueue scripts and styles.
  */
 function app_beanbag_scripts() {
 	wp_enqueue_style( 'app-beanbag-style', get_template_directory_uri() . '/_/css/app.min.css' );
 	
-	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/_/js/app.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/_/js/app.min.js', array(), '20180801', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'app_beanbag_scripts' );
