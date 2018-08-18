@@ -26,12 +26,11 @@
 	<header id="header">
 		<div class="container">			
 			<nav class="navbar navbar-expand-md">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand"><img src="https://via.placeholder.com/250x75" class="img-fluid" alt="App Beanbag"/></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
+					<img src="https://via.placeholder.com/250x75" class="img-fluid" alt="App Beanbag"/>
+				</a>
 
-				<ul class="navbar-nav ml-auto d-none d-sm-flex">
-					<li class="nav-item active">
-						<a href="#" class="nav-link">Home <span class="sr-only">(current)</span></a>
-					</li>
+				<ul class="navbar-nav ml-auto d-none d-md-flex">
 					<li class="navbar-item">
 						<a href="#" class="nav-link">Events</a>
 					</li>
@@ -46,8 +45,8 @@
 					</li>
 				</ul>
 				
-				<div aria-label="Menu Toggle" class="sidenav-open align-middle ml-auto cursor-pointer d-block d-sm-none">
-					<i class="fa fa-bars fa-lg"></i>
+				<div aria-label="Menu Toggle" class="menu-toggle align-middle ml-auto cursor-pointer d-block d-md-none">
+					<i class="fa fa-bars"></i>
 				</div>
 			</nav>
 		</div>
