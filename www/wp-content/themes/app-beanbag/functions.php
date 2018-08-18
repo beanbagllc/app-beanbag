@@ -24,9 +24,6 @@ if ( ! function_exists( 'app_beanbag_setup' ) ) :
 		 */
 		load_theme_textdomain( 'app-beanbag', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
-
 		/*
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
@@ -59,29 +56,25 @@ if ( ! function_exists( 'app_beanbag_setup' ) ) :
 			'caption',
 		) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'app_beanbag_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
-
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
+		
+		// Remove WP emoji
+		remove_action('wp_head', 'print_emoji_detection_script', 7);
+		remove_action('wp_print_styles', 'print_emoji_styles');
+		remove_action('admin_print_scripts', 'print_emoji_detection_script' );
+		remove_action('admin_print_styles', 'print_emoji_styles' );
+		
+		// Remove unnecessary meta
+		remove_action('wp_head', 'rsd_link');	
+		remove_action('wp_head', 'wlwmanifest_link');		
+		remove_action('wp_head','rest_output_link_wp_head');
+		remove_action('wp_head', 'wp_oembed_add_host_js');		
 	}
 endif;
 add_action( 'after_setup_theme', 'app_beanbag_setup' );
+
+
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -97,6 +90,8 @@ function app_beanbag_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'app_beanbag_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'app_beanbag_content_width', 0 );
+
+
 
 /**
  * Register widget area.
@@ -116,43 +111,52 @@ function app_beanbag_widgets_init() {
 }
 add_action( 'widgets_init', 'app_beanbag_widgets_init' );
 
+
+
+/**
+ * Remove recent comments inline styles
+ */
+function remove_recent_comments_style() {  
+        global $wp_widget_factory;  
+        remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );  
+    }  
+add_action( 'widgets_init', 'remove_recent_comments_style' );
+
+
+
 /**
  * Enqueue scripts and styles.
  */
 function app_beanbag_scripts() {
 	wp_enqueue_style( 'app-beanbag-style', get_template_directory_uri() . '/_/css/app.min.css' );
 	
-	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/_/js/app.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/_/js/app.min.js', array(), '20180801', true );
 
-	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'app-beanbag-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'app_beanbag_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+
 
 /**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
 
+
+
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
 
+
+
 /**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+
 
 /**
  * Load Jetpack compatibility file.

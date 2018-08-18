@@ -6,4 +6,15 @@
 			color: $primary-hover;
 		}
 	}
+	.navbar-nav {
+		.navbar-item {
+			padding: 0 1rem;
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+	.menu-toggle {
+		font-size: 3rem;
+	}
 }
