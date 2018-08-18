@@ -16,10 +16,8 @@ get_header();
 ?>
 
 	<main id="main" class="p-5">
-
 		<div class="container">
 			<div class="row">
-
 				<div id="primary" class="col-md-9">
 					<div id="content" class="site-main">
 
@@ -63,8 +61,7 @@ get_header();
 					<?php get_sidebar(); ?>
 				</div>
 			</div>
-		</div>
-		
+		</div>		
 	</main><!-- #main -->		
 
 <?php
