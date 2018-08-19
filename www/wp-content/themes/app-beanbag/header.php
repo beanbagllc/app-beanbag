@@ -27,7 +27,7 @@
 	<a class="skip-link screen-reader-text sr-only" href="#main"><?php esc_html_e( 'Skip to content', 'app-beanbag' ); ?></a>
 
 	<header id="header">
-		<div class="container">			
+		<div class="container-fluid">			
 			<nav class="navbar navbar-expand-md">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="navbar-brand">
 					<img src="https://via.placeholder.com/130x65" class="img-fluid" alt="App Beanbag"/>
@@ -48,10 +48,10 @@
 				</ul>
 				<ul class="navbar-nav ml-auto d-none d-md-flex">
 					<li class="navbar-item">
-						<a href="#" class="nav-link">Sign up</a>
+						<a href="#" class="nav-link box"><i class="fas fa-user"></i> Sign up</a>
 					</li>
 					<li class="navbar-item">
-						<a href="#" class="nav-link">Log in</a>
+						<a href="#" class="nav-link box"><i class="fas fa-sign-in-alt"></i> Log in</a>
 					</li>					
 				</ul>
 				<div aria-label="Menu Toggle" class="menu-toggle align-middle ml-auto cursor-pointer d-block d-md-none">

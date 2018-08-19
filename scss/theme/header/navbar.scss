@@ -12,9 +12,17 @@
 				font-size: 1rem;
 				&:hover {
 					color: $primary-hover;
-					border: 2px solid $primary-hover;
+					border-bottom: 2px solid $primary-hover;
 				}
-			}
+				&.box {
+					&:hover {
+						border: 2px solid $primary-hover;
+					}
+				}
+				@include media-breakpoint-down(lg) {
+					font-size: .8rem;
+				}
+			}			
 		}
 	}
 	.menu-toggle {
