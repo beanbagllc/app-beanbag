@@ -16,10 +16,10 @@ get_header();
 ?>
 
 	<main id="main" class="p-5">
-
 		<div class="container">
+			<!--Start Page Template -->
+		
 			<div class="row">
-
 				<div id="primary" class="col-md-9">
 					<div id="content" class="site-main">
 
@@ -60,11 +60,12 @@ get_header();
 				</div><!-- #primary -->
 				
 				<div id="secondary" class="col-md-3">
-					<?php get_sidebar(); ?>
+					<?php get_sidebar(); ?>					
 				</div>
 			</div>
-		</div>
-		
+			
+			<!-- End Page Template -->
+		</div>		
 	</main><!-- #main -->		
 
 <?php

@@ -128,9 +128,9 @@ add_action( 'widgets_init', 'remove_recent_comments_style' );
  * Enqueue scripts and styles.
  */
 function app_beanbag_scripts() {
-	wp_enqueue_style( 'app-beanbag-style', get_template_directory_uri() . '/_/css/app.min.css' );
+	wp_enqueue_style( 'app-beanbag-style','/_/css/app.min.css' );
 	
-	wp_enqueue_script( 'app-beanbag-navigation', get_template_directory_uri() . '/_/js/app.min.js', array(), '20180801', true );
+	wp_enqueue_script( 'app-beanbag-navigation','/_/js/app.min.js', array(), '20180801', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'app_beanbag_scripts' );

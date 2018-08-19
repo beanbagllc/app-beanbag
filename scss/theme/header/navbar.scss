@@ -1,17 +1,28 @@
 .navbar {
 	padding: .5rem 0;
-	a {
-		color: $primary;
-		&:hover {
-			color: $primary-hover;
-		}
-	}
 	.navbar-nav {
 		.navbar-item {
 			padding: 0 1rem;
 			&:last-child {
 				padding-right: 0;
 			}
+			a {
+				color: $primary;
+				border: 2px solid transparent;
+				font-size: 1rem;
+				&:hover {
+					color: $primary-hover;
+					border-bottom: 2px solid $primary-hover;
+				}
+				&.box {
+					&:hover {
+						border: 2px solid $primary-hover;
+					}
+				}
+				@include media-breakpoint-down(lg) {
+					font-size: .8rem;
+				}
+			}			
 		}
 	}
 	.menu-toggle {
